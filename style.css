@@ -1,0 +1,253 @@
+/*Type Selector css*/
+body {
+    font-family: sans-serif;
+}
+
+footer {
+    background-color: pink;
+}
+
+span {
+    font-weight: bold;
+}
+
+/*Class Selector 
+catatan: manggil class didahului dengan '.', class dapat dimiliki oleh beberapa elemen html / SHAREABLE*/
+.red {
+    color:red;
+}
+
+.fancy {
+    /*text-shadow: 4px 4px 3px #77f; 
+    Keterangan: jadi px yg pertama untuk jarak mundur shadow dengan teksnya, kemudian px kedua untuk jarak tinggi shadow dengan teksnya, kemudain px yg ketika untuk seberapa blur shadow dari teksnya*/
+    text-shadow: 4px 4px 3px palevioletred;
+}
+
+/* class selector dengan spesific type elemen*/
+
+h1.fancy {
+    text-shadow: 4px 3px 3px pink;
+}
+
+/* id Selector CSS
+Catatan: Manggil id didahului dengan '#', id harus UNIK dan hanya dapat dimiliki oleh 1 elemen html / Tidak SHAREABLE*/
+
+#istimewa {
+    text-decoration:underline;
+}
+
+#cantik {
+    color: thistle;
+    font-weight: bold;
+}
+
+/* Atribut Selector*/
+
+/* <a> elemen yg menerapkan href atribut*/
+a[href] {
+    color: blue;
+}
+
+/* <a> elemen yg menerapkan nilai pada href atribut dengan awalan "#" */
+a[href^='#'] {
+    background-color: gold;
+}
+
+/* <a> elemen yg menerapkan nilai pada href mengandung teks dicoding (tidak mementingkan huruf kapital*/
+a[href*='dicoding' i] {
+    background-color: orange;
+}
+
+/* <a> elemen yg menerapkan nilai pada href mengandung teks dicoding (tidak mementingkan huruf kapital*/
+a[href*='wikipedia' i] {
+    background-color: tomato;
+}
+
+a[href$='.org'] {
+    color:whitesmoke;
+}
+
+
+/* Universal Selector
+Catatan: 
+- p.universalSelector , h3.universalSelector {} artinya elemen p dan h3 yang memiliki value class "universalSelector" 
+
+- [lang*='en-us'].universalSelector {} artinya elemen html apa saja yg memiliki atribut lang yang mengandung nilai 'en-us' AND memiliki class universalSelector
+*/
+p.universalSelector , h3.universalSelector {
+    color:green;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+[lang*='en-us'].universalSelector{
+    font-style: italic;
+}
+
+#warning{
+    color:red;
+}
+
+#content {
+    border:1px solid blue;
+    padding:20px;
+}
+
+
+/*Combinators: Adjacent Sibling Selector (+)
+
+Combinators selectors adalah gabungan dari dua buah basic selector
+
+Catatan: jadi output dari img + p {} adalah akan menstyling si elemen p setelah div.
+Mengapa?
+Karena adjacent sibling ini adalah selector/ menunjuk pada suatu elemen yang letaknya setelahnya persis satu dari suatu elemen tertentu */
+
+img + p {
+    background-color:aqua;
+}
+
+p + img {
+    box-shadow: 10px 10px aqua;
+}
+
+
+/* Combinators: General Sibling Selector (~)*/
+
+img ~ p {
+    background-color:rgba(255, 0, 119, 0.261);
+}
+
+p ~ img {
+    box-shadow: 10px 10px rgba(255, 0, 119, 0.261);
+}
+/* Selector jenis General Sibling adalah memberikan rule css pada suatu elemen yang terletak setelah suatu elemen yang ditunjuk dan tidak harus tepat satu setelahnya (tidak seperti adjacent sibling namun untuk urutan setelahnya masih penting) */
+
+
+/* Combinators: Child Selector (>: tanda greater than)*/
+
+div > h3 {
+    color: rgba(251, 164, 4, 0.976);
+}
+
+div > h4 {
+    color: rgba(251, 164, 4, 0.976);
+}
+
+div > p#childSiblingSelector {
+    color: rgba(251, 164, 4, 0.976);
+}
+
+/* Catatan: 
+- div > h3 {color: ;}. dibacanya adalah div adalah parent elemen dari h3, dan beri rule css pada h3 yg merupakan child elemen dari div
+
+- div > h4 {color: ;}, dibacanya adalah div adalah parent elemen dari h4, dan beri rule css pada h4 yg merupakan child elemen dari div
+
+- div > p#childSiblingSelector {color: ;}, dibacanya adalah div adalah parent elemen dari p dengan id value childSiblingSelector, dan beri rule css pada p dengan id value childSiblingSelector yg merupakan child elemen dari div
+
+(NAMUN: elemen p mem hub parent-child TIDAK LANGSUNG dengan div jadi rule CSS tidak berlaku)
+
+PERHATIKAN: Mengapa terjadi duplikasi penulisan rule? mengapa tidak langsung div > h3, h4, p#childSiblingSelector {} , karena error dan output tidak sesuai jadi perlunya penulisan ulang bahwa parentnya adalah div sebanyak apapun childnya */
+
+
+/* Descendant Selector */
+div h5 {
+    color: rgb(184, 122, 243);
+}
+div h6 {
+    color: rgb(184, 122, 243);
+}
+div p#descendantSelector {
+    color: rgb(184, 122, 243);
+}
+
+
+/* Pseudo Selector
+Catatan: berikut titik dua adalah milik elemen, dan elemen a yg dimaksud adalah yang termasuk dalam class "Pseudo Selector" */
+    a {
+	font-size: 25px;
+	}
+    
+    /* unvisited link*/
+  	a.pseudoSelector:link{
+  	color: black;
+ 	}
+   
+    a.pseudoSelector:visited{
+   	color: green;
+  	}
+   	
+    /* over the mouse to the element*/
+    a.pseudoSelector:hover{
+    font-size:30px;
+   	text-shadow: 3px 3px black;
+  	}
+   
+   	/* selected link*/
+    a.pseudoSelector:active{
+  	color: blue;
+  	}
+
+    /* Making a div element into Pseudo Selector*/
+    div.pseudoSelector {
+        color:white;
+        background-color: green;
+        padding: 20px;
+        border:2px solid greenyellow;
+    }
+    div.pseudoSelector:hover {
+        color:black;
+        background-color: aquamarine;
+    }
+
+    /* Making Cilukba! Suprise Element*/
+
+    h3#supriseElement {
+        color:green;
+    }
+    h3#supriseElement:hover p{
+        display: block;
+        
+    }
+
+    p.pseudoSelector {
+        color: white;
+        background-color: green;
+        padding: 20px;
+        box-shadow: 8px 6px rgb(111, 255, 0);
+        display: none;
+    }
+
+    /* coba pseudo selector - first-child*/
+
+    /*
+    p:first-child {
+        color:brown;
+    }
+    */
+
+    /* coba pseudo selector - Combinators: DEscendant Selector ( <space> )*/
+
+    /*
+    article h2:first-child {
+        color:brown;
+    }
+    */
+    
+    /* Pseudo Selector - Element
+    - didahului dengan ' :: '
+    Contoh:
+    - ::before, ::after, ::first-letter*/
+
+    p#pseudoElement::before, p#pseudoElement::after{
+        content:'"';
+        font-size: 40px;
+        font-style: italic;
+        font-weight: bold;
+        color:green;
+    }
+    /*
+    p#pseudoElement::first-letter{
+        font-size: 32px;
+        font-weight: bold;
+        color: saddlebrown;
+    }
+    */

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan CSS</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="fancy"> Ini adalah halaman web untuk latihan CSS</h1>
+    </header>
+    <main>
+        <section name="basicSelector">
+            <article name="classSelector">
+                <!--untuk class selector css-->
+                <h2>Styling elemen HTML dengan class Selector</h2>
+                <p class="red">Ini adalah kalimat merah yang berada di dalam tag span.</p>
+        
+                <p class="fancy">
+                    Shining! kalimat bergaya fancy
+                </p>
+                
+                <p class="red fancy">Change! menjadi kalimat merah fancy</p>
+        
+                <span> Paragraf adalah kumpulan kalimat yang memiliki induk kalimat baik di awal, di akhir, maupun keduanya. Paragraf ini berada di dalam tag p.</span>
+                <br> <br>
+                </article>
+        
+                <article name="idSelector">
+                    <!--Untuk id Selector CSS-->
+                    <h2>Styling elemen HTML dengan id Selector</h2>
+                    <div id="istimewa">
+                        <p> Ini adalah kalimat yg berada dalam div dengan id yaitu istimewa.</p>
+                    </div>
+                    <div id="cantik">Ini adalah kalimat yg berada dalam div dengan id yaitu cantik.</div>
+                </article>
+        
+                <article name="atributSelector">
+                    <!--Untuk Atribut Selector-->
+                    <h2>Styling elemen HTML dengan Attribute Selector</h2>
+                    <h3>Daftar link:</h3>
+                    <ul>
+                        <li><a href="#internal" target="_blank">Internal link</a></li>
+        
+                        <li><a href="https://www.dicoding.com/academies/123/tutorials/4207?from=4206" target="_blank">Dicoding link</a></li>
+        
+                        <li><a href="#insensitive" target="_blank">Insensitive internal link</a></li>
+        
+                        <li><a href="https://en.wikipedia.org/wiki/.org" target="_blank">Wikipedia org link</a></li>
+                    </ul>
+                </article>
+        
+                <article name="universalSelector>">
+                    <!--Untuk Universal Atribut-->
+                    <h2>Styling elemen HTML dengan Universal Selector</h2>
+                    <p class="universalSelector">Ini merupakan pararaf biasa atau tidak menerapkan atribut apapun. Maka teks pada paragraf ini akan berwarna hijau.</p>
+        
+                    <p class="universalSelector" lang="en-us">This is an English paragraph contains en-us value of lang attribute, so this text will be green and italic.</p>
+        
+                    <h3 class="universalSelector">Ini merupakan sebuat header biasa</h3>
+        
+                    <h3 class="universalSelector" lang="en-us">This is an English Header</h3>
+        
+                    <p class="universalSelector" id="warning">Perhatikan paragraf ini! Paragraf ini merupakan paragraf yang memiliki id bernilai warning, sehingga teks dari paragraf ini akan berwarna merah.</p>
+        
+                    <div><p class="universalSelector" id="content">Ini merupakan sebuah teks di dalam sebuah div yang memiliki id bernilai "content", seharusnya paragraf ini dibungkus dalam border yang memiliki padding 20px.</p></div>
+                </article>
+        </section>
+        
+        <section name="combinationSelector">
+            <article name="adjacentSiblingSelector">
+                <h2>Combinators: Adjacent Sibling Selector (+)</h2>
+
+                <!--Combinators selectors adalah gabungan dari dua buah basic selector
+                
+                Catatan: 
+                adjacent sibling ini adalah selector/ menunjuk pada suatu elemen yang terletak persis setelah tepat satu dari suatu elemen tertentu 
+
+                di bawah ini terdapat 3 elemen p, img, dan p lagi. 
+                untuk styling adjacent sibling berikut kesimpulan hasilnya:
+                - p + img {box-shadow: 10px 10px aqua;} artinya adalah berikan rule css box shadow untuk elemen img yang sebelumnya terdapat elemen p
+
+                - img + p { background-color:aqua;}
+                artinya adalah berikan rule css untuk elemen p yg sebelumnya terdapat elemen img
+            -->
+
+                <p> ini adalah paragraf tentang Dicoding</p>
+                <img src="./dicodingLogo.jpeg" alt="dicoding logo">
+                <p>Dicoding berdiri sejak tahun 2015</p>
+            </article>
+
+            <article name="generalSiblingSelector">
+                <h2>Combinators: General Sibling Selector (~)</h2>
+
+                <!--Selector jenis General Sibling adalah memberikan rule css pada suatu elemen yang terletak setelah suatu elemen yang ditunjuk dan tidak harus tepat satu setelahnya (tidak seperti adjacent sibling namun untuk urutan setelahnya masih penting) 
+                
+                Catatan: jadi setelah rule css img ~ p {} dan p img {} walaupun setelahnya ada 2 iklan tetap akan terpengaruh rule cssnya-->
+                <p> ini adalah paragraf tentang Instagram</p>
+
+                <h3>ini iklan</h3>
+
+                <img src="./instagramLogo.jpeg" alt="intagram logo">
+
+                <h3>ini iklan</h3>
+
+                <p>Instagram berdiri sejak tahun 2010</p>
+            </article>
+
+            <article name="childSiblingSelector">
+                <h2>Combinators: Child Sibling Selector (> : tanda greater than)</h2>
+
+                <!--
+                Selector jenis Child Sibling adalah memberikan rule css pada suatu elemen yang merupakan child elemen dari suatu elemen yang ditunjuk dan harus hubungan parent-childnya secara langsung) -->
+                <div>
+                    <h3>Ini Header 3</h3>
+                    <h4>Ini Header 4</h4>
+                    <section>
+                        <p id="childSiblingSelector">Keterangan: Header 3 dan Header 4 diatas juga paragraf ini berada dalam tag section yang berada di dalam tag div. Merupakan child element dari div TIDAK langsung.</p>
+                    </section>
+                </div>
+            </article>
+
+            <article>
+                <h2>Combinators: Descendant Selector 
+                (' ', berupa space)</h2>
+                <!--Selector jenis Descendant adalah memberikan rule css pada suatu elemen yang merupakan child elemen dari suatu elemen yang ditunjuk dan hubungan parent-childnya BAIK secara langsung maupun Tidak Langsung) -->
+                <div>
+                    <h5>Ini Header 5</h5>
+                    <h6>Ini Header 6</h6>
+                    <section>
+                        <p id="descendantSelector">Keterangan: Header 5 dan Header 6 diatas juga paragraf ini berada dalam section yang berada di dalam tag div. Merupakan child element dari div TIDAK langsung.</p>
+                    </section>
+                </div>
+            </article>
+
+            <article name="pseudoSelector">
+                <!-- buat pseudo class selector, untuk anchor buat pseudoclass nya 4 yaitu link, visited, hover, active -->
+
+                <h2>Pseudo Class Selector</h2>
+                 <h3>Styling link anchor dengan 4 kondisi yaitu link, visited, hover, active</h3>
+
+                <h4>Mari kita styling Link di bawah ini</h4>
+
+                <a class="pseudoSelector" href="https://www.w3schools.com/css/css_pseudo_classes.asp" target="_blank"> This is a link to CSS Tutorial </a>
+
+                <!--Making Div Into Pseudo Class Selector-->
+                <h3>Mouse over the div element below to change its background color:</h3>
+                <div class="pseudoSelector" id="magicBlock">Magic Block: Mouse over me, please!</div>
+
+                <!--Making "CILUKBA!" suprise element-->
+
+                <h3 class="pseudoSelector" id="supriseElement">Hover to this sentence, please!
+                    <p class="pseudoSelector">Cilukba! this is a Suprise Element!</p>
+                </h3>
+            
+                <!--pseudoSelector tipe element yaitu
+                - didahului oleh ' :: '
+                contoh:
+                - ::before, ::after, ::first-letter
+                -->
+                <h3>Pseudo Selector dengan jenis Element</h3>
+                <p id="pseudoElement">
+                
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>*ini adalah footer: instagram: @nadaqqn_</p>
+    </footer>
+</body>
+</html>
